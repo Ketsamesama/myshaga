@@ -6,14 +6,12 @@ import ProfileBtn from './profileBtn';
 
 import style from './ButtonsNav.module.scss';
 
-const ButtonsNav = () => {
-  return (
-    <div className={style.btns}>
-      <Anxiety />
-      <Bell />
-      <ProfileBtn />
-    </div>
-  );
-};
+const ButtonsNav = () => (
+  <div className={style.btns}>
+    <Anxiety />
+    <Bell />
+    <ProfileBtn />
+  </div>
+);
 
 export default ButtonsNav;
