@@ -5,7 +5,12 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: path.resolve(__dirname, '..', './src/index.tsx'),
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+    alias: {
+      app: path.resolve(__dirname, '..', '.src/app'),
+      widgets: path.resolve(__dirname, '..', './src/widgets'),
+      pages: path.resolve(__dirname, '..', './src/pages'),
+    },
   },
   module: {
     rules: [

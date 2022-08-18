@@ -1,0 +1,17 @@
+.nav {
+  list-style-type: none;
+  display: flex;
+  li {
+    margin-right: 32px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+    a {
+      color: #373f41;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+}

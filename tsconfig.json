@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
-
+    "baseUrl": "./src",
+    "paths": {
+      "app/*": ["app/*"],
+      "widgets/*": ["widgets/*"],
+      "pages/*": ["pages/*"]
+    },
     "target": "ES5",
     "module": "ESNext",
     "moduleResolution": "node",
-    "lib": [
-      "DOM",
-      "ESNext"
-    ],
+    "lib": ["DOM", "ESNext"],
     "jsx": "react-jsx",
     "noEmit": true,
     "isolatedModules": true,
