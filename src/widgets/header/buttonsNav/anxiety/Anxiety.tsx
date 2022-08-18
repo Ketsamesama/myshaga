@@ -1,9 +1,7 @@
 import React from 'react';
 
-import style from './styles.module.scss';
+import style from './Anxiety.module.scss';
 
-const Anxiety = () => {
-  return <button className={style.btn}>Тревога</button>;
-};
+const Anxiety = () => <button className={style.btn}>Тревога</button>;
 
 export default Anxiety;
