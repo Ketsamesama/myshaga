@@ -6,4 +6,4 @@ const ProfileBtn = () => {
   return <button className={style.btn} type="button" />;
 };
 
-export { ProfileBtn };
+export default ProfileBtn;

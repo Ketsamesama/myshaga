@@ -1,3 +1,1 @@
-import { HeaderNav } from 'widgets/header/headerNav/HeaderNav';
-
-export { HeaderNav };
+export { default } from 'widgets/header/headerNav/HeaderNav';

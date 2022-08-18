@@ -6,4 +6,4 @@ const Anxiety = () => {
   return <button className={style.btn}>Тревога</button>;
 };
 
-export { Anxiety };
+export default Anxiety;

@@ -1,3 +1,1 @@
-import { ButtonsNav } from 'widgets/header/buttonsNav/ButtonsNav';
-
-export { ButtonsNav };
+export { default } from 'widgets/header/buttonsNav/ButtonsNav';
