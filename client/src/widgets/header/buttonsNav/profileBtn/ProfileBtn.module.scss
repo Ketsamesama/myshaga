@@ -1,0 +1,7 @@
+.btn {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  background: center / 16px 18px no-repeat url('assets/svg/profile.svg'),
+    var(--grey-primary);
+}

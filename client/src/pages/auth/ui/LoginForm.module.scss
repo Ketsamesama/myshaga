@@ -1,0 +1,108 @@
+.form {
+  button {
+    width: 360px;
+
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+
+    display: block;
+    margin-top: 67px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.inputWrapper {
+  border: 1px solid #7b61ff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 22px;
+}
+
+.input {
+  display: block;
+  width: 356px;
+  height: 56px;
+  background-color: var(--grey-primary);
+  margin-bottom: 20px;
+  padding-left: 16px;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+  text-align: left;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.fake {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #c3cbcd;
+
+  position: relative;
+  margin-right: 13px;
+  flex-shrink: 0;
+  &::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: no-repeat center/100%
+      url('https://api.iconify.design/bi:check.svg');
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: 0.2s;
+  }
+}
+
+.chekboxWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  label {
+    display: flex;
+    align-items: center;
+    .description {
+      color: #848484;
+
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 22px;
+      text-align: left;
+
+      margin-right: 46px;
+    }
+
+    a {
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 22px;
+      text-align: right;
+
+      font-family: Montserrat;
+    }
+  }
+
+  .chekbox {
+    width: 20px;
+    height: 20px;
+    display: none;
+    &:checked + .fake::before {
+      opacity: 1;
+    }
+  }
+}
+
+.error {
+  color: red;
+  text-align: center;
+  margin: 0;
+}

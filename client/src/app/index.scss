@@ -1,0 +1,46 @@
+@import './styles/index.scss';
+
+body {
+  font-family: 'Mulish', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+button:disabled,
+button[disabled] {
+  opacity: 0.5;
+}
+
+input {
+  font-family: inherit; /* 1 */
+  font-size: inherit; /* 1 */
+  line-height: inherit; /* 1 */
+  margin: 0; /* 2 */
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+a {
+  color: inherit;
+
+  &:visited {
+    color: inherit;
+  }
+  &:active {
+    color: inherit;
+  }
+}
