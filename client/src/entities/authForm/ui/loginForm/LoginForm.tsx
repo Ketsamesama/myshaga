@@ -1,14 +1,10 @@
 import React, { FC, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
-import {
-  getAuthenticationError,
-  getIsLoading,
-  useAppDispatch,
-  useAppSelector,
-} from 'store/hooks';
+import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { loginAction } from 'entities/authForm/model/slices/actionCreators';
 import { resetError } from 'entities/authForm/model/slices/authSlice';
+import { getAuthenticationError, getIsLoading } from 'store/selectorFunctions';
 
 import { IParams } from './LoginForm.types';
 import { inputList } from './inputList';

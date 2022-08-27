@@ -10,7 +10,7 @@ const HeaderNav = () => (
     {listItem.map((item, i) => {
       return (
         <li key={i}>
-          <NavLink to={'/'}>{item}</NavLink>
+          <NavLink to={item.link}>{item.name}</NavLink>
         </li>
       );
     })}

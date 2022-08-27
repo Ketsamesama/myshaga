@@ -25,12 +25,15 @@ const authSlice = createSlice({
       state.isAuth = true;
       state.authenticationError = false;
     },
-    authFetchingError(state: IState) {
+    authFetchingError(state: IState, action: PayloadAction<boolean>) {
       state.isLoading = false;
-      state.authenticationError = true;
+      state.authenticationError = action.payload;
     },
     resetError(state: IState) {
       state.authenticationError = false;
+    },
+    loadingCompleted(state: IState) {
+      state.isLoading = false;
     },
   },
 });
@@ -40,5 +43,6 @@ export const {
   authFetchingSuccess,
   authFetchingError,
   resetError,
+  loadingCompleted,
 } = authSlice.actions;
 export default authSlice.reducer;

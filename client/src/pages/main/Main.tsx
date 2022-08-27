@@ -1,11 +1,7 @@
 import React from 'react';
 
-import Header from 'widgets/header';
-
-const Main = () => (
-  <>
-    <Header />
-  </>
-);
+const Main = () => {
+  return <div>Main</div>;
+};
 
 export default Main;
