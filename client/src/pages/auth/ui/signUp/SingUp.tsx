@@ -6,7 +6,7 @@ import { getIsAuth } from 'store/selectorFunctions';
 
 import AuthWrapper from 'pages/auth/ui/authWrapper';
 import AuthTitle from 'widgets/login/authTitle/AuthTitle';
-import SignUpForm from 'entities/authForm/ui/signUpForm';
+import SignUpForm from 'features/authForm/ui/signUpForm';
 
 import style from 'pages/auth/ui/LoginForm.module.scss';
 

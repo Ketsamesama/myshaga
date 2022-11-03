@@ -4,13 +4,13 @@ import {
   authFetchingSuccess,
   authFetchingError,
   loadingCompleted,
-} from 'entities/authForm/model/slices/authSlice';
+} from 'features/authForm/model/slices/authSlice';
 
-import { checkAuth, login, registration } from 'entities/authForm/api';
+import { checkAuth, login, registration } from 'features/authForm/api';
 import {
   IParamsLogin,
   IParamsRegistration,
-} from 'entities/authForm/api/api.types';
+} from 'features/authForm/api/api.types';
 
 const loginAction = (params: IParamsLogin) => async (dispatch: AppDispatch) => {
   try {

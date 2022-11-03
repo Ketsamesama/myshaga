@@ -21,7 +21,10 @@ const authSlice = createSlice({
       state.isLoading = false;
       if (action.payload.rememberMe) {
         localStorage.setItem('token', action.payload.accessToken);
+      } else {
+        sessionStorage.setItem('token', action.payload.accessToken);
       }
+
       state.isAuth = true;
       state.authenticationError = false;
     },

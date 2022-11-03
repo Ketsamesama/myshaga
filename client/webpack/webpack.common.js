@@ -14,7 +14,7 @@ module.exports = {
       shared: path.resolve(__dirname, '..', './src/shared'),
       store: path.resolve(__dirname, '..', './src/store'),
       widgets: path.resolve(__dirname, '..', './src/widgets'),
-      supabaseConfig: path.resolve(__dirname, '..', './src/supabaseConfig/'),
+      features: path.resolve(__dirname, '..', './src/features'),
     },
   },
   module: {

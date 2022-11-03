@@ -2,8 +2,7 @@ import React, { FC, useEffect } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 
 import { useAppDispatch, useAppSelector } from 'store/hooks';
-import { loginAction } from 'entities/authForm/model/slices/actionCreators';
-import { resetError } from 'entities/authForm/model/slices/authSlice';
+import { loginAction } from 'features/authForm/model/slices/actionCreators';
 import { getAuthenticationError, getIsLoading } from 'store/selectorFunctions';
 
 import { IParams } from './LoginForm.types';
@@ -21,10 +20,6 @@ const LoginForm: FC<any> = ({ style }) => {
   const onSubmit: SubmitHandler<IParams> = (data) => {
     dispatch(loginAction({ ...data }));
   };
-
-  useEffect(() => {
-    dispatch(resetError());
-  }, []);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={style.form}>

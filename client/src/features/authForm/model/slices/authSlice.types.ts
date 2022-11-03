@@ -1,4 +1,4 @@
-import { IUser } from 'entities/authForm/api/api.types';
+import { IUser } from 'features/authForm/api/api.types';
 
 interface IState {
   isAuth: boolean;

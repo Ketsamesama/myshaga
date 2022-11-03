@@ -2,19 +2,25 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 
-import { checkAuthAction } from 'entities/authForm/model/slices/actionCreators';
+import { checkAuthAction } from 'features/authForm/model/slices/actionCreators';
 import {
   authFetching,
   loadingCompleted,
-} from 'entities/authForm/model/slices/authSlice';
+  resetError,
+} from 'features/authForm/model/slices/authSlice';
 import { getIsLoading } from 'store/selectorFunctions';
 
 import MainWrapper from 'pages/mainWrapper';
 import Login from 'pages/auth/ui/login';
 import SignUp from 'pages/auth/ui/signUp';
+import Ads from 'pages/ads';
+import Main from 'pages/main/';
+import AddAd from 'pages/addAd';
+
 import GuardedRoute from 'pages/auth/model/hoc/GuardedRoute';
 import GuardAuthRoute from 'pages/auth/model/hoc/GuardAuthRoute';
 import Preloader from 'shared/preloader/Preloader';
+
 import './index.scss';
 
 const App = () => {
@@ -22,7 +28,9 @@ const App = () => {
   const isLoading = useAppSelector(getIsLoading);
 
   useEffect(() => {
-    if (localStorage.getItem('token')) {
+    dispatch(resetError());
+
+    if (localStorage.getItem('token') || sessionStorage.getItem('token')) {
       dispatch(checkAuthAction());
     }
   }, []);
@@ -33,7 +41,11 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/*" element={<GuardedRoute component={MainWrapper} />} />
+        <Route path="/" element={<GuardedRoute component={MainWrapper} />}>
+          <Route index element={<Main />} />
+          <Route path="ads" element={<Ads />} />
+          <Route path="ads/add" element={<AddAd />} />
+        </Route>
         <Route path="/login" element={<GuardAuthRoute component={Login} />} />
         <Route path="/singup" element={<GuardAuthRoute component={SignUp} />} />
       </Routes>

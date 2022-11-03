@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IAuthResponse } from 'entities/authForm/api/api.types';
+import { IAuthResponse } from 'features/authForm/api/api.types';
 
 const API_URL = 'http://localhost:5000/api';
 

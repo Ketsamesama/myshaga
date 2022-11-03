@@ -4,8 +4,8 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { getAuthenticationError, getIsLoading } from 'store/selectorFunctions';
 
-import { registrationAction } from 'entities/authForm/model/slices/actionCreators';
-import { resetError } from 'entities/authForm/model/slices/authSlice';
+import { registrationAction } from 'features/authForm/model/slices/actionCreators';
+import { resetError } from 'features/authForm/model/slices/authSlice';
 
 import { IParams } from './SignUpForm.types';
 import { inputList } from './inputList';
