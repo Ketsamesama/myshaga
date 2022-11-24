@@ -16,7 +16,6 @@ const SignUpForm: FC<any> = ({ style }) => {
   const dispatch = useAppDispatch();
 
   const authenticationError = useAppSelector(getAuthenticationError);
-  const isLoading = useAppSelector(getIsLoading);
 
   const { register, handleSubmit } = useForm<IParams>();
   const onSubmit: SubmitHandler<IParams> = (data) => {
@@ -49,7 +48,7 @@ const SignUpForm: FC<any> = ({ style }) => {
           </p>
         )}
       </div>
-      <Button disabled={isLoading}>Зарегистрироваться</Button>
+      <Button>Зарегистрироваться</Button>
     </form>
   );
 };

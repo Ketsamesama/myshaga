@@ -1,17 +1,17 @@
 .header {
-  padding-left: 148px;
-  padding-right: 148px;
   border-bottom: 1px solid #e2e5e6;
 }
 
 .headerWrapper {
   position: relative;
-  width: 100%;
   display: flex;
   align-items: center;
   height: 88px;
 
   justify-content: center;
+
+  width: 1145px;
+  margin: 0 auto;
 }
 
 .logo {

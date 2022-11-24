@@ -4,7 +4,7 @@ interface IParams {
   email: string;
   city: string;
   dormitory: string;
-  rooms: string;
+  room: string;
 }
 
 type IRegister =
@@ -12,7 +12,7 @@ type IRegister =
   | 'lastName'
   | 'email'
   | 'city'
-  | 'rooms'
+  | 'room'
   | 'dormitory';
 
 interface IIinputList {

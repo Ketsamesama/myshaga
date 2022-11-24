@@ -1,0 +1,22 @@
+.link {
+  height: 35px;
+  width: 180px;
+  margin-top: 21px;
+  margin-bottom: 21px;
+
+  box-shadow: var(--shadow);
+
+  a {
+    line-height: 35px;
+    display: block;
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 35px;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: row-reverse;
+}

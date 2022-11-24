@@ -9,7 +9,9 @@ const UserSchema = new Schema({
   lastName: { type: String, required: true },
   city: { type: String, required: true },
   dormitory: { type: String, required: true },
-  rooms: { type: String },
+  room: { type: String },
+  avatar: { type: String, default: null },
+  university: { type: String, default: null },
 });
 
 module.exports = model('User', UserSchema);

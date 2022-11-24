@@ -1,4 +1,11 @@
 .btn {
-  min-height: 50px;
   background-color: var(--yellow);
+  cursor: pointer;
+
+  box-shadow: var(--shadow);
+}
+
+button:disabled,
+button[disabled] {
+  opacity: 0.5;
 }

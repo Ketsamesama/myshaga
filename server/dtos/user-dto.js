@@ -6,7 +6,10 @@ module.exports = class UserDto {
   lastName;
   city;
   dormitory;
-  rooms;
+  room;
+  avatar;
+  university;
+
   constructor(model) {
     this.email = model.email;
     this.id = model._id;
@@ -15,6 +18,10 @@ module.exports = class UserDto {
     this.lastName = model.lastName;
     this.city = model.city;
     this.dormitory = model.dormitory;
-    this.rooms = model.rooms;
+    this.room = model.room;
+    this.avatar = model.avatar
+      ? `${process.env.API_URL}/static/${model.avatar}`
+      : null;
+    this.university = model.university;
   }
 };

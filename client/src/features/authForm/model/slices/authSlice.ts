@@ -6,15 +6,14 @@ import type { IActionAuth, IState } from './authSlice.types';
 const initialState: IState = {
   isAuth: false,
   isLoading: false,
-  authenticationError: false,
-  user: null,
+  authError: false,
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    authFetching(state: IState) {
+    authFetchingLoading(state: IState) {
       state.isLoading = true;
     },
     authFetchingSuccess(state: IState, action: PayloadAction<IActionAuth>) {
@@ -24,16 +23,15 @@ const authSlice = createSlice({
       } else {
         sessionStorage.setItem('token', action.payload.accessToken);
       }
-
       state.isAuth = true;
-      state.authenticationError = false;
+      state.authError = false;
     },
     authFetchingError(state: IState, action: PayloadAction<boolean>) {
       state.isLoading = false;
-      state.authenticationError = action.payload;
+      state.authError = action.payload;
     },
     resetError(state: IState) {
-      state.authenticationError = false;
+      state.authError = false;
     },
     loadingCompleted(state: IState) {
       state.isLoading = false;
@@ -42,10 +40,10 @@ const authSlice = createSlice({
 });
 
 export const {
-  authFetching,
   authFetchingSuccess,
   authFetchingError,
   resetError,
   loadingCompleted,
+  authFetchingLoading,
 } = authSlice.actions;
 export default authSlice.reducer;

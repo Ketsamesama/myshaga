@@ -1,0 +1,12 @@
+.root {
+  border-left: 2px solid #c4c4c440;
+  flex-grow: 1;
+
+  .title {
+    margin: 0;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 18px;
+  }
+}

@@ -32,7 +32,7 @@ const inputList: IIinputList[] = [
     required: true,
   },
   {
-    register: 'rooms',
+    register: 'room',
     placeholder: 'Номер комнаты (необязательно)',
     type: 'text',
     required: false,

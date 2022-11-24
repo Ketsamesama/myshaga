@@ -1,4 +1,4 @@
-interface IUser {
+type IUser = {
   email: string;
   id: string;
   isActivated: string;
@@ -6,8 +6,10 @@ interface IUser {
   lastName: string;
   city: string;
   dormitory: string;
-  rooms: string | null;
-}
+  room: string | null;
+  avatar: string | null;
+  university: string | null;
+};
 
 interface IParamsLogin {
   email: string;
@@ -18,7 +20,7 @@ interface IParamsLogin {
 interface IAuthResponse {
   accessToken: string;
   refreshToken: string;
-  user: IUser | null;
+  user: IUser;
 }
 
 interface IParamsRegistration {
@@ -27,7 +29,7 @@ interface IParamsRegistration {
   lastName: string;
   city: string;
   dormitory: string;
-  rooms: string;
+  room: string;
 }
 
 export type { IAuthResponse, IParamsLogin, IParamsRegistration, IUser };

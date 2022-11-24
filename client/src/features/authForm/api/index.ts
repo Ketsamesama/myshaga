@@ -2,13 +2,12 @@ import axios from 'axios';
 import { $api, API_URL } from 'shared/api';
 import { IAuthResponse, IParamsLogin, IParamsRegistration } from './api.types';
 
-const login = ({ email, password, rememberMe }: IParamsLogin) => {
+const login = ({ email, password }: IParamsLogin) => {
   return $api
     .post<IAuthResponse>('/login', { email, password })
     .then((response) => {
       return {
         accessToken: response.data.accessToken,
-        refreshToken: response.data.refreshToken,
         user: response.data.user,
       };
     });
@@ -20,7 +19,7 @@ const registration = ({
   lastName,
   city,
   dormitory,
-  rooms,
+  room,
 }: IParamsRegistration) => {
   return $api
     .post<IAuthResponse>('/registration', {
@@ -29,12 +28,11 @@ const registration = ({
       lastName,
       city,
       dormitory,
-      rooms,
+      room,
     })
     .then((response) => {
       return {
         accessToken: response.data.accessToken,
-        refreshToken: response.data.refreshToken,
         user: response.data.user,
       };
     });
@@ -46,7 +44,6 @@ const checkAuth = async () => {
   });
   return {
     accessToken: response.data.accessToken,
-    refreshToken: response.data.refreshToken,
     user: response.data.user,
   };
 };

@@ -1,0 +1,11 @@
+.root {
+  position: relative;
+  height: 125px;
+  border-radius: 15px;
+  background-color: var(--grey-primary);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin-bottom: 21px;
+}

@@ -11,6 +11,7 @@ module.exports = {
       assets: path.resolve(__dirname, '..', './src/assets'),
       entities: path.resolve(__dirname, '..', './src/entities'),
       pages: path.resolve(__dirname, '..', './src/pages'),
+      processes: path.resolve(__dirname, '..', './src/processes'),
       shared: path.resolve(__dirname, '..', './src/shared'),
       store: path.resolve(__dirname, '..', './src/store'),
       widgets: path.resolve(__dirname, '..', './src/widgets'),
@@ -56,6 +57,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '..', './build'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   plugins: [
     new HtmlWebpackPlugin({

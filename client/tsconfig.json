@@ -5,12 +5,12 @@
       "app/*": ["app/*"],
       "assets/*": ["assets/*"],
       "entities/*": ["entities/*"],
+      "features/*": ["features/*"],
       "pages/*": ["pages/*"],
-      "shared/*": ["shared/*"],
+      "processes/*": ["processes/*"],
       "store/*": ["store/*"],
-      "supabaseConfig/*": ["supabaseConfig/*"],
-      "widgets/*": ["widgets/*"],
-      "features/*": ["features/*"]
+      "shared/*": ["shared/*"],
+      "widgets/*": ["widgets/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

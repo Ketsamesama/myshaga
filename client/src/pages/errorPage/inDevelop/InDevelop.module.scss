@@ -1,0 +1,38 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+
+  .link {
+    height: 93px;
+    width: 1022px;
+    border-radius: 11px;
+
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 93px;
+    text-transform: uppercase;
+    text-align: center;
+
+    margin-top: 115px;
+
+    position: relative;
+    z-index: 2;
+  }
+
+  img {
+    height: 723px;
+    width: 852px;
+
+    @media screen and (max-height: 870px) and (min-height: 760px) {
+      position: absolute;
+      bottom: calc(870px - 100vh);
+    }
+    @media screen and (max-height: 760px) {
+      position: absolute;
+      top: 0;
+    }
+  }
+}

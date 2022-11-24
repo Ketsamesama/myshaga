@@ -1,8 +1,10 @@
 const Router = require('express').Router;
 const userController = require('../controllers/user-controller');
+const adsController = require('../controllers/ads-controller');
+const applicationsContoller = require('../controllers/applications-contoller');
 const router = new Router();
 const { body } = require('express-validator');
-const authMiddleware = require('../middlewares/auth-middleware');
+const { upload } = require('../middlewares/ads-meddleware');
 
 router.post(
   '/registration',
@@ -14,5 +16,19 @@ router.post('/login', userController.login);
 router.post('/logout', userController.logout);
 router.get('/activate/:link', userController.activate);
 router.get('/refresh', userController.refresh);
+
+router.get('/ads', adsController.getAds);
+router.get('/ads/:id', adsController.getAd);
+router.post('/ads', upload.array('files', 4), adsController.addAd);
+
+router.post('/application', applicationsContoller.addApplocation);
+
+router.patch(
+  '/profileupdateavatar',
+  upload.single('avatar'),
+  userController.updateAvatar
+);
+
+router.patch('/profileupdate', userController.updateUserData);
 
 module.exports = router;

@@ -1,0 +1,69 @@
+.ad {
+  width: 578px;
+  margin-right: 80px;
+
+  .title {
+    margin: 0;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 18px;
+  }
+
+  .currentImage {
+    margin-top: 19px;
+    height: 409.5980529785156px;
+    width: 578.3607788085938px;
+  }
+
+  .text {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 18px;
+    text-align: left;
+    margin-bottom: 33px;
+  }
+
+  .name,
+  .data {
+    font-weight: 700;
+  }
+
+  .imagesList {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    img {
+      height: 90px;
+      width: 90px;
+      margin-right: 7px;
+    }
+  }
+
+  .contacts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    gap: 19px;
+
+    span:nth-child(even) {
+      text-align: right;
+    }
+  }
+}
+
+.skeletonRoot {
+  width: 578px;
+  margin-right: 80px;
+}
+.skeleton {
+  .text {
+    font-size: 22px;
+    width: 263px;
+    margin: 0 auto;
+  }
+
+  .flexContainer {
+    display: flex;
+  }
+}

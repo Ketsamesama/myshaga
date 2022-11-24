@@ -1,6 +1,6 @@
 interface IPropsButton {
   children: React.ReactNode;
-  disabled: boolean;
+  styles?: object;
 }
 
 export type { IPropsButton };

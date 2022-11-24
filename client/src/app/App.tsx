@@ -3,22 +3,22 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 
 import { checkAuthAction } from 'features/authForm/model/slices/actionCreators';
-import {
-  authFetching,
-  loadingCompleted,
-  resetError,
-} from 'features/authForm/model/slices/authSlice';
+import { resetError } from 'features/authForm/model/slices/authSlice';
 import { getIsLoading } from 'store/selectorFunctions';
 
-import MainWrapper from 'pages/mainWrapper';
 import Login from 'pages/auth/ui/login';
 import SignUp from 'pages/auth/ui/signUp';
-import Ads from 'pages/ads';
+import AdAdd from 'pages/adAdd';
+import AdsPage from 'pages/adsPage';
+import AdPage from 'pages/adPage';
 import Main from 'pages/main/';
-import AddAd from 'pages/addAd';
+import Profile from 'pages/profile';
+import ApplicationsPage from 'pages/applicationsPage';
+import ApplicationAdd from 'pages/applicationAdd';
+import InDevelop from 'pages/errorPage/inDevelop';
 
-import GuardedRoute from 'pages/auth/model/hoc/GuardedRoute';
-import GuardAuthRoute from 'pages/auth/model/hoc/GuardAuthRoute';
+import GuardedRoute from 'processes/HocAuth/GuardedRoute';
+import GuardAuthRoute from 'processes/HocAuth/GuardAuthRoute';
 import Preloader from 'shared/preloader/Preloader';
 
 import './index.scss';
@@ -38,16 +38,30 @@ const App = () => {
   if (isLoading) {
     return <Preloader />;
   }
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<GuardedRoute component={MainWrapper} />}>
-          <Route index element={<Main />} />
-          <Route path="ads" element={<Ads />} />
-          <Route path="ads/add" element={<AddAd />} />
-        </Route>
-        <Route path="/login" element={<GuardAuthRoute component={Login} />} />
-        <Route path="/singup" element={<GuardAuthRoute component={SignUp} />} />
+        <Route path="ads" element={<GuardedRoute component={AdsPage} />} />
+        <Route path="ads/:id" element={<GuardedRoute component={AdPage} />} />
+        <Route path="ads/add" element={<GuardedRoute component={AdAdd} />} />
+
+        <Route
+          path="applications"
+          element={<GuardedRoute component={ApplicationsPage} />}
+        />
+        <Route
+          path="applications/add"
+          element={<GuardedRoute component={ApplicationAdd} />}
+        />
+
+        <Route path="/" element={<GuardedRoute component={Main} />} />
+        <Route path="profile" element={<GuardedRoute component={Profile} />} />
+
+        <Route path="login" element={<GuardAuthRoute component={Login} />} />
+        <Route path="singup" element={<GuardAuthRoute component={SignUp} />} />
+
+        <Route path="*" element={<InDevelop />} />
       </Routes>
     </BrowserRouter>
   );

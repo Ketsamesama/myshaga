@@ -1,0 +1,65 @@
+.inputWrapper {
+  margin: 0 auto;
+  position: relative;
+
+  .input,
+  .textarea {
+    border: 1px solid #dbe2ea;
+    border-radius: 6px;
+  }
+
+  .input {
+    height: 35px;
+  }
+  .textarea {
+    resize: none;
+    height: 190px;
+  }
+
+  .title {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 20px;
+    text-align: left;
+  }
+
+  .errors {
+    position: absolute;
+    // left: -172px;
+    color: red;
+    font-size: 14px;
+    width: 266px;
+  }
+
+  .customCheckbox {
+    position: absolute;
+    opacity: 0;
+    left: 72px;
+    top: calc(50% + 20px);
+    width: 20px !important;
+    height: 20px;
+
+    & + label {
+      position: absolute;
+      cursor: pointer;
+      padding: 0;
+
+      left: 142px;
+      top: calc(50% + 16px);
+    }
+
+    & + label:before {
+      content: '';
+      display: inline-block;
+      vertical-align: text-top;
+      width: 20px;
+      height: 20px;
+
+      background: no-repeat center/contain url('assets/png/eye.png');
+    }
+
+    &:checked + label:before {
+      background: no-repeat center/contain url('assets/png/hidden.png');
+    }
+  }
+}

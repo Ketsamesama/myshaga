@@ -54,7 +54,7 @@ const LoginForm: FC<any> = ({ style }) => {
         <a>Забыли пароль?</a>
       </div>
 
-      <Button disabled={isLoading}>ВОЙТИ</Button>
+      <Button>ВОЙТИ</Button>
     </form>
   );
 };

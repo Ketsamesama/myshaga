@@ -41,4 +41,10 @@ $api.interceptors.response.use(
   }
 );
 
-export { $api, API_URL };
+const apiFormData = axios.create({
+  baseURL: API_URL,
+  headers: { 'Content-Type': 'multipart/form-data' },
+  withCredentials: true,
+});
+
+export { $api, API_URL, apiFormData };

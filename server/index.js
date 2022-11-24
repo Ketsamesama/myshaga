@@ -20,9 +20,11 @@ app.use(
 app.use('/api', router);
 app.use(errorMiddleware);
 
+app.use('/static', express.static('uploads'));
+
 const start = async () => {
   try {
-    await mongoose.connect(process.env.DB_URL, {
+    mongoose.connect(process.env.DB_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
