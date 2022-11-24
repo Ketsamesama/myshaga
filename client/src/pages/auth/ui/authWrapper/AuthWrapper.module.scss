@@ -1,0 +1,19 @@
+.authContainer {
+  display: flex;
+  height: 100vh;
+  font-family: Montserrat;
+}
+
+.authWrapper {
+  background-color: #fdfdfd;
+  min-width: 630px;
+  width: 40%;
+}
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 117px;
+}

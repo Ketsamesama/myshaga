@@ -1,0 +1,28 @@
+.authImg {
+  width: 100%;
+
+  background: right no-repeat url('assets/png/login.png');
+  background-size: cover;
+
+  .title {
+    margin-top: 20%;
+    text-align: center;
+    font-family: Montserrat;
+
+    h1 {
+      font-size: 86px;
+      font-weight: 700;
+      line-height: 105px;
+      color: var(--yellow);
+      margin: 0;
+    }
+
+    p {
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 27px;
+      color: #fdfdfd;
+      margin: 0;
+    }
+  }
+}

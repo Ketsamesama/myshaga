@@ -1,0 +1,21 @@
+.root {
+  width: 360px;
+}
+
+.btn {
+  height: 50px;
+  width: 360px;
+  margin-top: 65px;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+}
+
+.input {
+  input,
+  textarea {
+    width: 360px;
+  }
+}

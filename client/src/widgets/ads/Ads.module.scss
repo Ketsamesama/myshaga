@@ -1,0 +1,59 @@
+.ads {
+  .adItem {
+    position: relative;
+    height: 125px;
+    border-radius: 15px;
+    background-color: var(--grey-primary);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    margin-bottom: 21px;
+  }
+}
+
+.img {
+  width: 105px;
+  height: 105px;
+
+  margin-right: 27px;
+  margin-left: 11px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.prewText {
+  text-align: left;
+  width: 634px;
+  left: 289px;
+  top: 226px;
+  border-radius: nullpx;
+
+  p {
+    margin: 0;
+    line-height: 18px;
+  }
+  .title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 11px;
+  }
+
+  .text {
+    font-size: 16px;
+    font-weight: 300;
+  }
+}
+
+.link {
+  height: 35px;
+  width: 180px;
+  border-radius: 10px;
+  position: absolute;
+  right: 23px;
+
+  a {
+    line-height: 35px;
+    display: block;
+  }
+}
