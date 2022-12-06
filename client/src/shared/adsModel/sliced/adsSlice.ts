@@ -7,6 +7,7 @@ import { СURRENTСATEGORY } from './adsSlice.types';
 const initialState: IState = {
   ads: [],
   currentCatigory: СURRENTСATEGORY.found,
+  currentPage: 1,
 };
 
 const adsSlice = createSlice({
@@ -19,8 +20,11 @@ const adsSlice = createSlice({
     setCurrentCategory(state: IState, action: PayloadAction<СURRENTСATEGORY>) {
       state.currentCatigory = action.payload;
     },
+    setCurrentPage(state: IState, action: PayloadAction<number>) {
+      state.currentPage = action.payload;
+    },
   },
 });
 
-export const { setAds, setCurrentCategory } = adsSlice.actions;
+export const { setAds, setCurrentCategory, setCurrentPage } = adsSlice.actions;
 export default adsSlice.reducer;

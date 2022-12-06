@@ -40,10 +40,10 @@ const authSlice = createSlice({
 });
 
 export const {
+  authFetchingLoading,
   authFetchingSuccess,
   authFetchingError,
   resetError,
   loadingCompleted,
-  authFetchingLoading,
 } = authSlice.actions;
 export default authSlice.reducer;

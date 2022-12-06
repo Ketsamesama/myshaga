@@ -15,21 +15,51 @@ class ApplicationService {
       }
 
       return ad;
-    } catch (e) {
-      return e;
+    } catch (err) {
+      return err;
     }
   }
 
-  // async getAllAds() {
-  //   const ads = await AdsSchema.find();
-  //   return ads;
-  // }
+  async getAllApplications(page) {
+    try {
+      const application = await ApplicationSchema.find();
+      const end = page * 10;
+      const start = end - 10;
 
-  // async getAd(id) {
-  //   const ad = await AdsSchema.findById(id);
+      return application.slice(start, end);
+    } catch (err) {
+      return err;
+    }
+  }
 
-  //   return ad;
-  // }
+  async voting({ userId, result, appId }) {
+    try {
+      const app = await ApplicationSchema.findById(appId);
+
+      const userResaultIndex = app.votedUsers.findIndex(
+        (item) => item.user !== userId
+      );
+
+      if (userResaultIndex === -1) {
+        app.votedUsers.push({
+          user: userId,
+          result: result,
+        });
+      } else {
+        app.votedUsers[userResaultIndex].result = result;
+      }
+
+      if (result === '+') {
+        app.numberSignatures += 1;
+      } else if (result === '-') {
+        app.numberSignatures -= 1;
+      }
+
+      return app.numberSignatures;
+    } catch (err) {
+      return err;
+    }
+  }
 }
 
 module.exports = new ApplicationService();

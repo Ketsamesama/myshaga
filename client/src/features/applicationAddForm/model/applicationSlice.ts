@@ -10,23 +10,25 @@ const applicationSlice = createSlice({
   name: 'applicationAdd',
   initialState,
   reducers: {
-    setInitialStatus(state: IState) {
+    setStatusInitial(state: IState) {
       state.status = STATESTATUS.initialStatus;
     },
-  },
-
-  extraReducers: {
-    [fetchApplicationForm.fulfilled.type]: (state) => {
+    setStatusSucsess(state: IState) {
       state.status = STATESTATUS.sucsess;
     },
-    [fetchApplicationForm.pending.type]: (state) => {
+    setStatusLoading(state: IState) {
       state.status = STATESTATUS.loading;
     },
-    [fetchApplicationForm.rejected.type]: (state) => {
+    setStatusError(state: IState) {
       state.status = STATESTATUS.error;
     },
   },
 });
 
 export default applicationSlice.reducer;
-export const { setInitialStatus } = applicationSlice.actions;
+export const {
+  setStatusInitial,
+  setStatusSucsess,
+  setStatusLoading,
+  setStatusError,
+} = applicationSlice.actions;

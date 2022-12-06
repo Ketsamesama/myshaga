@@ -27,7 +27,7 @@ class AdsController {
 
   async getAds(req, res, next) {
     try {
-      const ads = await AdService.getAllAds();
+      const ads = await AdService.getAllAds(req.query.page);
       const adsDto = transfromAdsToDto(ads);
       return res.json(adsDto);
     } catch (e) {

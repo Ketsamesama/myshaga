@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { appliationsApi } from 'widgets/applications/models';
 import addAdSlice from 'features/adAddForm/models/slises/adAddSlice';
 import authSlice from 'features/authForm/model/slices/authSlice';
 import adsSlice from 'shared/adsModel/sliced/adsSlice';
@@ -14,7 +15,9 @@ const store = configureStore({
     applicationAd: applicationSlice,
     button: buttonSlice,
     profile: profileSlice,
+    [appliationsApi.reducerPath]: appliationsApi.reducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

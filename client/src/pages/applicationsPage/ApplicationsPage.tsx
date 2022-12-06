@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
 import MainWrapper from 'shared/mainWrapper';
 import LinkComponent from 'shared/link';
+import Applications from 'widgets/applications/Applications';
 
 import style from './ApplicationsPage.module.scss';
 
-const Applications = () => {
-  useEffect(() => {
-    const ws = new WebSocket('wss://localhost:8000/');
-  }, []);
+const ApplicationsPage = () => {
   return (
     <MainWrapper>
       <div className={style.nav}>
@@ -15,8 +13,9 @@ const Applications = () => {
           Подать заявку
         </LinkComponent>
       </div>
+      <Applications />
     </MainWrapper>
   );
 };
 
-export default Applications;
+export default ApplicationsPage;

@@ -22,6 +22,11 @@
   margin-bottom: 10px;
 }
 
+.content {
+  display: flex;
+  align-items: center;
+}
+
 .prewText {
   text-align: left;
   width: 634px;
@@ -49,8 +54,8 @@
   height: 35px;
   width: 180px;
   border-radius: 10px;
-  position: absolute;
-  right: 23px;
+
+  margin-right: 23px;
 
   a {
     line-height: 35px;

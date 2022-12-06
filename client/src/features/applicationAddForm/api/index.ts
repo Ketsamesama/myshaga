@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { apiFormData } from 'shared/api';
+import { API_URL } from 'shared/api';
 
 interface IParamsAPI {
   title: string;
@@ -9,15 +9,15 @@ interface IParamsAPI {
 const fetchApplicationFormApi = async ({ title, text }: IParamsAPI) => {
   try {
     const response = await axios.post(
-      'http://localhost:5000/api/application',
+      `${API_URL}/applications/`,
       { title, text },
       {
         withCredentials: true,
       }
     );
     return response;
-  } catch (e) {
-    return e;
+  } catch (error: any) {
+    throw new Error(error.message);
   }
 };
 

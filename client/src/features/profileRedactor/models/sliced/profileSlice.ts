@@ -11,7 +11,7 @@ const initialState: IState = {
   formDataSaved: false,
 };
 
-const ProfileAdSlice = createSlice({
+const profileAdSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
@@ -28,5 +28,5 @@ const ProfileAdSlice = createSlice({
 });
 
 export const { setUser, updateAvatar, setFormDataSaved } =
-  ProfileAdSlice.actions;
-export default ProfileAdSlice.reducer;
+  profileAdSlice.actions;
+export default profileAdSlice.reducer;

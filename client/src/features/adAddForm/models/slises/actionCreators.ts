@@ -1,11 +1,12 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
 import { postAdFormApi } from 'features/adAddForm/api';
 import { IParamsThunk } from 'features/adAddForm/models/slises/adAdSlice.types';
-import { removeDisabled, setDisabled } from 'shared/button/models/buttonSliced';
-import { useAppDispatch } from 'store/hooks';
-import { AppDispatch } from 'store/store';
+import {
+  setStatusSucsess,
+  setStatusError,
+} from 'features/adAddForm/models/slises/adAddSlice';
+import { setDisabled, removeDisabled } from 'shared/button/models/buttonSliced';
 
-import { setStatusSucsess, setStatusError } from './adAddSlice';
+import { AppDispatch } from 'store/store';
 
 const fetchAdForm =
   ({ title, text, images, category }: IParamsThunk) =>
@@ -25,6 +26,8 @@ const fetchAdForm =
       dispatch(setStatusSucsess());
     } catch (e) {
       dispatch(setStatusError());
+    } finally {
+      dispatch(removeDisabled());
     }
   };
 

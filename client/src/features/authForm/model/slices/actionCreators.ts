@@ -1,18 +1,18 @@
 import { AppDispatch } from 'store/store';
-import {
-  authFetchingSuccess,
-  authFetchingError,
-  loadingCompleted,
-  authFetchingLoading,
-} from 'features/authForm/model/slices/authSlice';
 
 import { checkAuth, login, registration } from 'features/authForm/api';
 import {
   IParamsLogin,
   IParamsRegistration,
 } from 'features/authForm/api/api.types';
-import { setDisabled, removeDisabled } from 'shared/button/models/buttonSliced';
+import {
+  authFetchingLoading,
+  authFetchingSuccess,
+  loadingCompleted,
+  authFetchingError,
+} from 'features/authForm/model/slices/authSlice';
 import { setUser } from 'features/profileRedactor/models/sliced/profileSlice';
+import { setDisabled, removeDisabled } from 'shared/button/models/buttonSliced';
 
 const loginAction = (params: IParamsLogin) => async (dispatch: AppDispatch) => {
   try {
@@ -23,6 +23,7 @@ const loginAction = (params: IParamsLogin) => async (dispatch: AppDispatch) => {
     dispatch(
       authFetchingSuccess({ ...response, rememberMe: params.rememberMe })
     );
+
     dispatch(setUser(response.user));
   } catch (e) {
     dispatch(authFetchingError(true));

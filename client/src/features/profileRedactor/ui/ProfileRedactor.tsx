@@ -7,7 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import { postForm } from 'features/profileRedactor/models/sliced/actionCreators';
-import { getUser } from 'store/selectorFunctions';
+import { getFormDataSaved, getUser } from 'store/selectorFunctions';
 
 import { inputList } from 'features/profileRedactor/ui/ProfileFormConsts';
 import InputWrapper from 'shared/inputWrapper';
@@ -20,7 +20,7 @@ import style from './ProfileRedactor.module.scss';
 
 const ProfileRedactor = () => {
   const user = useAppSelector(getUser)!;
-  const formDataSaved = useAppSelector((state) => state.profile.formDataSaved);
+  const formDataSaved = useAppSelector(getFormDataSaved);
 
   const formSchema = yup.object().shape({
     password: yup

@@ -1,8 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { IState, STATESTATUS } from 'shared/typeFetchForm';
 
-import { fetchAdForm } from './actionCreators';
-
 const initialState: IState = {
   status: STATESTATUS.initialStatus,
 };

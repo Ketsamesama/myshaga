@@ -21,7 +21,9 @@ router.get('/ads', adsController.getAds);
 router.get('/ads/:id', adsController.getAd);
 router.post('/ads', upload.array('files', 4), adsController.addAd);
 
-router.post('/application', applicationsContoller.addApplocation);
+router.post('/applications', applicationsContoller.addApplocation);
+router.get('/applications', applicationsContoller.getApplocations);
+router.put('/applicationsvoting', applicationsContoller.voting);
 
 router.patch(
   '/profileupdateavatar',

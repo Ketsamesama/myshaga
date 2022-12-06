@@ -1,15 +1,11 @@
-import axios, { AxiosRequestConfig } from 'axios';
 import { apiFormData } from 'shared/api';
 
 const postAdFormApi = async (formData: FormData) => {
   try {
-    const response = await apiFormData.post(
-      'http://localhost:5000/api/ads',
-      formData
-    );
+    const response = await apiFormData.post(`/ads`, formData);
     return response;
-  } catch (e) {
-    return e;
+  } catch (error: any) {
+    throw new Error(error.message);
   }
 };
 

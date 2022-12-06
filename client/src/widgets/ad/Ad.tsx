@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { API_URL } from 'shared/api';
 
 import { IStateAd, IAd, STATUS } from 'widgets/ad/Ad.type';
-import style from './Ad.module.scss';
+
 import SkeletonAd from 'widgets/ad/Skeleton';
+import NoImg from 'assets/png/no_image.png';
+import style from './Ad.module.scss';
 
 const Ad = () => {
   const [ad, setAd] = useState<IStateAd>(STATUS.loading);
@@ -12,7 +15,7 @@ const Ad = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    const url = `http://localhost:5000/api/ads/${id}`;
+    const url = `${API_URL}/ads/${id}`;
     axios
       .get<IAd>(url)
       .then((response) => {
@@ -38,7 +41,7 @@ const Ad = () => {
     <div className={style.ad}>
       <h1 className={style.title}>{ad.title}</h1>
       <img
-        src={currentImg}
+        src={currentImg || NoImg}
         alt="изображение объявления"
         className={style.currentImage}
       />

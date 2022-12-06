@@ -1,26 +1,14 @@
-// const { Server } = require('ws');
-// const uuid = require('uuid').v4;
+const ws = require('ws');
 
-// const wss = new Server({ port: 8000 });
+const wss = new ws.Server(
+  {
+    port: 5001,
+  },
+  () => console.log('server started on 5000')
+);
 
-// const openWs = () => {
-//   wss.on('connection', (ws) => {
-//     // const { refreshToken } = req.cookies;
-//     // const userData = tokenService.validateRefreshToken(refreshToken);
-
-//     const id = uuid();
-//     clients[id] = ws;
-
-//     console.log(`new clients ${id}`);
-
-//     ws.on('message', (rawMessage) => {
-//       console.log();
-//     });
-
-//     ws.on('close', () => {
-//       delete clients[id];
-//     });
-//   });
-// };
-
-// module.exports = { openWs };
+wss.on('connection', function connection(ws) {
+  ws.on('message', function message(message) {
+    message = JSON.parse(message);
+  });
+});

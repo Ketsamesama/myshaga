@@ -17,6 +17,7 @@ interface IAd {
 interface IState {
   ads: Array<IAd> | [];
   currentCatigory: СURRENTСATEGORY;
+  currentPage: number;
 }
 
 export type { IState, IAd };

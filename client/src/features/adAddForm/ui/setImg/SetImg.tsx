@@ -1,12 +1,11 @@
 import React, { FC, useState } from 'react';
 import classNames from 'classnames';
-import { useAppDispatch } from 'store/hooks';
+import { updatePrewImg } from 'features/adAddForm/models/utils';
 
 import { IProps } from 'features/adAddForm/ui/setImg/SetImg.types';
 
 import NullImg from 'assets/png/BlackImg.png';
 import style from './SetImg.module.scss';
-import { updatePrewImg } from 'features/adAddForm/models/utils';
 
 const SetImg: FC<IProps> = ({ styles, prewImg, setPrewImg }) => {
   const [toggleDrop, setToggleDrop] = useState<boolean>(false);

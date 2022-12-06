@@ -21,9 +21,12 @@ class AdService {
     return ad;
   }
 
-  async getAllAds() {
+  async getAllAds(page) {
     const ads = await AdsSchema.find();
-    return ads;
+    const end = page * 10;
+    const start = end - 10;
+
+    return ads.slice(start, end);
   }
 
   async getAd(id) {

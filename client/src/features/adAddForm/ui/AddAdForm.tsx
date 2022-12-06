@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Controller, useForm, useController } from 'react-hook-form';
-import { useAppDispatch, useAppSelector } from 'store/hooks';
+import { Controller, useForm } from 'react-hook-form';
+import { useAppSelector, useAppDispatch } from 'store/hooks';
+import { fetchAdForm } from 'features/adAddForm/models/slises/actionCreators';
+import { setStatusInitial } from 'features/applicationAddForm/model/applicationSlice';
 import {
   FormControl,
   FormControlLabel,
   Radio,
   RadioGroup,
 } from '@mui/material';
-
-import { fetchAdForm } from 'features/adAddForm/models/slises/actionCreators';
 
 import SetImg from 'features/adAddForm/ui/setImg';
 import Button from 'shared/button';
@@ -17,10 +17,9 @@ import { IFormType, Img, IParamsSubmitForm, IPrewImg } from './AddAdform.types';
 
 import { STATESTATUS } from 'shared/typeFetchForm';
 import { useNavigate } from 'react-router-dom';
-import { setStatusInitial } from 'features/adAddForm/models/slises/adAddSlice';
 
 import InputWrapper from 'shared/inputWrapper';
-import { getStatus } from 'store/selectorFunctions';
+import { getStatusAdForm } from 'store/selectorFunctions';
 
 import style from './AddAdForm.module.scss';
 
@@ -28,15 +27,21 @@ const AddAdForm = () => {
   const { handleSubmit, control } = useForm<IFormType>();
 
   const dispatch = useAppDispatch();
+
   const [prewImg, setPrewImg] = useState<IPrewImg>([null, null, null, null]);
 
-  const status = useAppSelector(getStatus);
+  const status = useAppSelector(getStatusAdForm);
   const navigate = useNavigate();
 
   useEffect(() => {
+    debugger;
     if (status === STATESTATUS.sucsess) {
       dispatch(setStatusInitial());
       navigate('/ads');
+    } else if (status === 'error') {
+      navigate('/error', {
+        state: { type: 'adsAd/setStatusInitial' },
+      });
     }
   }, [status]);
 

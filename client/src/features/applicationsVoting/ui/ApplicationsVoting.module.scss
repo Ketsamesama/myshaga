@@ -1,0 +1,50 @@
+.root {
+  margin-right: 30px;
+  width: 76px;
+
+  span {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 35px;
+    text-align: center;
+    color: #469b40;
+    display: block;
+  }
+
+  button {
+    height: 25px;
+    width: 25px;
+    border-radius: 30px;
+  }
+
+  button {
+    position: relative;
+    span {
+      color: white;
+      font-size: 28px;
+      line-height: 28px;
+      font-weight: 500;
+
+      position: absolute;
+    }
+  }
+
+  .plus {
+    background-color: #469b40;
+    margin-right: 20px;
+
+    span {
+      top: -2px;
+      left: 4px;
+    }
+  }
+
+  .minus {
+    background-color: #c67373;
+
+    span {
+      top: -2px;
+      left: 6px;
+    }
+  }
+}
