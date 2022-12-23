@@ -6,6 +6,8 @@ import { useAppDispatch, useAppSelector } from 'store/hooks';
 import {
   getCurrentAdsCatigory,
   getCurrentAdsPage,
+  getTotalAdsPage,
+  getAds,
 } from 'store/selectorFunctions';
 import { fetchAds } from 'shared/adsModel/sliced/actionCreators';
 import { setCurrentPage } from 'shared/adsModel/sliced/adsSlice';
@@ -19,8 +21,7 @@ import style from './Ads.module.scss';
 
 const trimLine = (string: string) => {
   if (string.length >= 397) {
-    const newString = `${string.slice(0, 397)}...`;
-    return newString;
+    return `${string.slice(0, 397)}...`;
   }
   return string;
 };
@@ -28,20 +29,16 @@ const trimLine = (string: string) => {
 const Ads = () => {
   const currentCategory = useAppSelector(getCurrentAdsCatigory);
   const currentPage = useAppSelector(getCurrentAdsPage);
-
-  const getAds = createSelector(
-    (state: RootState) => state.ads.ads,
-    (ads) => ads?.filter((ads) => ads.category === currentCategory)
-  );
+  const totalPage = useAppSelector(getTotalAdsPage);
 
   const ads = useAppSelector(getAds);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchAds(1));
-  }, []);
+    dispatch(fetchAds(1, currentCategory));
+  }, [currentCategory]);
 
-  const scrollHandler = (e: React.WheelEvent) => {
+  const scrollHandler = (e: any) => {
     const scrollHeight = e.target.documentElement.scrollHeight;
     const scrollTop = e.target.documentElement.scrollTop;
 

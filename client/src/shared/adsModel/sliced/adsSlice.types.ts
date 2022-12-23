@@ -18,7 +18,13 @@ interface IState {
   ads: Array<IAd> | [];
   currentCatigory: СURRENTСATEGORY;
   currentPage: number;
+  totalPage: number | undefined;
 }
 
-export type { IState, IAd };
+interface IASetAds {
+  ads: IAd[];
+  total: number;
+}
+
+export type { IState, IAd, IASetAds };
 export { СURRENTСATEGORY };

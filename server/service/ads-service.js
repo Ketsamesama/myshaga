@@ -1,5 +1,6 @@
 const AdsSchema = require('../models/ads-model');
 const { formatDate } = require('../helpers/controllers');
+const { getAll } = require('./helpers');
 
 class AdService {
   async addAd({ title, text, category, images, userId }) {
@@ -21,17 +22,27 @@ class AdService {
     return ad;
   }
 
-  async getAllAds(page) {
-    const ads = await AdsSchema.find();
-    const end = page * 10;
-    const start = end - 10;
+  async getAllAds(page, category) {
+    try {
+      const result = await getAll(AdsSchema, category, page);
 
-    return ads.slice(start, end);
+      // let ads = await AdsSchema.find();
+      // ads = ads.filter((item) => item.category === category);
+      // const end = page * 10;
+      // const start = end - 10;
+
+      // const total = Math.ceil(ads.length / 10);
+
+      // return { ads: ads.slice(start, end), total };
+
+      return { ads: result.arr, total: result.total };
+    } catch (err) {
+      return err;
+    }
   }
 
   async getAd(id) {
     const ad = await AdsSchema.findById(id);
-
     return ad;
   }
 }

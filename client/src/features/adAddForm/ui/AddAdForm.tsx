@@ -34,11 +34,10 @@ const AddAdForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    debugger;
     if (status === STATESTATUS.sucsess) {
       dispatch(setStatusInitial());
       navigate('/ads');
-    } else if (status === 'error') {
+    } else if (status === STATESTATUS.error) {
       navigate('/error', {
         state: { type: 'adsAd/setStatusInitial' },
       });

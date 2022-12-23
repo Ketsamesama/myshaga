@@ -3,20 +3,19 @@ import { API_URL } from 'shared/api';
 
 interface IParams {
   useId: string;
-  result: string;
+  result: number;
   appId: string;
 }
 
 const putResult = async (params: IParams) => {
   try {
-    const response = await axios.put(
+    return await axios.put(
       `${API_URL}/applicationsvoting`,
       { ...params },
       {
         withCredentials: true,
       }
     );
-    return response.data;
   } catch (err) {
     throw new Error();
   }

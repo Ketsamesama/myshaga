@@ -1,32 +1,33 @@
 const ApplicationSchema = require('../models/applications-model');
+const { getAll } = require('./helpers');
 
 class ApplicationService {
   async addApplication({ title, text, numberSignatures, userId }) {
     try {
-      const adplication = await ApplicationSchema.create({
+      const application = await ApplicationSchema.create({
         title,
         text,
         user: userId,
         numberSignatures,
       });
 
-      if (!adplication) {
-        throw new Error('ad is undefined');
+      if (!application) {
+        throw new Error('application is undefined');
       }
-
-      return ad;
+      return application;
     } catch (err) {
       return err;
     }
   }
 
-  async getAllApplications(page) {
+  async getAllApplications(page, category) {
     try {
-      const application = await ApplicationSchema.find();
-      const end = page * 10;
-      const start = end - 10;
+      const result = await getAll(ApplicationSchema, category, page);
 
-      return application.slice(start, end);
+      return {
+        applications: result.arr,
+        total: result.total,
+      };
     } catch (err) {
       return err;
     }
@@ -35,7 +36,6 @@ class ApplicationService {
   async voting({ userId, result, appId }) {
     try {
       const app = await ApplicationSchema.findById(appId);
-
       const userResaultIndex = app.votedUsers.findIndex(
         (item) => item.user !== userId
       );
@@ -45,16 +45,17 @@ class ApplicationService {
           user: userId,
           result: result,
         });
+
+        app.numberSignatures += result;
       } else {
-        app.votedUsers[userResaultIndex].result = result;
+        if (app.votedUsers[userResaultIndex].result === result) {
+        } else {
+          app.votedUsers[userResaultIndex].result = result;
+          app.numberSignatures += result;
+        }
       }
 
-      if (result === '+') {
-        app.numberSignatures += 1;
-      } else if (result === '-') {
-        app.numberSignatures -= 1;
-      }
-
+      app.save();
       return app.numberSignatures;
     } catch (err) {
       return err;

@@ -27,9 +27,12 @@ class AdsController {
 
   async getAds(req, res, next) {
     try {
-      const ads = await AdService.getAllAds(req.query.page);
-      const adsDto = transfromAdsToDto(ads);
-      return res.json(adsDto);
+      const ads = await AdService.getAllAds(
+        req.query.page,
+        req.query.currentCategory
+      );
+      const adsDto = transfromAdsToDto(ads.ads);
+      return res.json({ ads: adsDto, total: ads.total });
     } catch (e) {
       next(e);
     }

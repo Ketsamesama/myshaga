@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { API_URL } from 'shared/api';
-import type { IStateApp, IApps } from 'widgets/applications/Applications.type';
+import type { IApps } from 'widgets/applications/Applications.type';
 
 export const appliationsApi = createApi({
   reducerPath: 'appliations',
@@ -9,8 +9,8 @@ export const appliationsApi = createApi({
   }),
   refetchOnFocus: true,
   endpoints: (build) => ({
-    getApplications: build.query<IApps[], string>({
-      query: (page: string) => ({
+    getApplications: build.query<IApps[], number>({
+      query: (page: number) => ({
         url: '/applications',
         params: {
           page,

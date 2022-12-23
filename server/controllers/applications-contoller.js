@@ -23,11 +23,13 @@ class ApplicationsContoller {
 
   async getApplocations(req, res, next) {
     try {
-      const applications = await applicationsService.getAllApplications(
-        req.query.page
+      const result = await applicationsService.getAllApplications(
+        req.query.page,
+        req.query.currentCategory
       );
-      const applicationsDto = transfromApplicationsToDto(applications);
-      return res.json(applicationsDto);
+
+      const applicationsDto = transfromApplicationsToDto(result.applications);
+      res.json({ applications: applicationsDto, total: result.total });
     } catch (err) {
       next(err);
     }
@@ -45,7 +47,8 @@ class ApplicationsContoller {
         result,
         appId,
       });
-      return newResult;
+
+      res.json(newResult);
     } catch (err) {
       next(err);
     }

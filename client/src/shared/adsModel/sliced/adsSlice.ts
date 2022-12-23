@@ -1,21 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { IState, IAd } from './adsSlice.types';
+import type { IState, IAd, IASetAds } from './adsSlice.types';
 import { СURRENTСATEGORY } from './adsSlice.types';
 
 const initialState: IState = {
   ads: [],
   currentCatigory: СURRENTСATEGORY.found,
   currentPage: 1,
+  totalPage: undefined,
 };
 
 const adsSlice = createSlice({
   name: 'ads',
   initialState,
   reducers: {
-    setAds(state: IState, action: PayloadAction<Array<IAd>>) {
-      state.ads = action.payload;
+    setAds(state: IState, action: PayloadAction<IASetAds>) {
+      state.ads = action.payload.ads;
+      state.totalPage = action.payload.total;
     },
     setCurrentCategory(state: IState, action: PayloadAction<СURRENTСATEGORY>) {
       state.currentCatigory = action.payload;

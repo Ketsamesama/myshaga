@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const UserResault = new Schema({
   user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
-  result: { type: String, required: true },
+  result: { type: Number, required: true },
 });
 
 const ApplicationSchema = new Schema({
